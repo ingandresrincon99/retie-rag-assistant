@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RETIE Pro — Asesoría Técnica Especializada</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── Sidebar ── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">RETIE Pro</span>
+      </div>
+      <p class="logo-sub">Asistente técnico inteligente</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="btn-new-chat" onclick="limpiarChat()">
+        <span>✦</span> Nueva consulta
+      </button>
+    </nav>
+
+    <!-- Estadísticas -->
+    <div class="sidebar-stats">
+      <div class="stat-item">
+        <span class="stat-number" id="statConsultas">0</span>
+        <span class="stat-label">Consultas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="statPaginas">0</span>
+        <span class="stat-label">Referencias</span>
+      </div>
+    </div>
+
+    <div class="sidebar-info">
+      <div class="info-badge">
+        <span class="badge-dot"></span>
+        <span>RETIE Colombia</span>
+      </div>
+      <div class="info-badge">
+        <span class="badge-dot badge-blue"></span>
+        <span>Gemini 2.5 Flash</span>
+      </div>
+      <div class="info-badge">
+        <span class="badge-dot badge-teal"></span>
+        <span>ChromaDB</span>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <p>Respuestas verificadas<br>exclusivamente del RETIE</p>
+    </div>
+  </aside>
+
+  <!-- ── Main ── -->
+  <main class="main">
+
+    <!-- Header -->
+    <header class="chat-header">
+      <button class="menu-toggle" id="menuToggle" onclick="toggleSidebar()">☰</button>
+      <div class="header-title">
+        <span class="header-icon">⚡</span>
+        <span>RETIE Assistant</span>
+      </div>
+      <div class="header-status" id="headerStatus">
+        <span class="status-dot"></span>
+        <span>Verificando...</span>
+      </div>
+    </header>
+
+    <!-- Chat area -->
+    <div class="chat-container" id="chatContainer">
+
+      <!-- Welcome message visual (se oculta automáticamente con JS) -->
+      <div class="welcome" id="welcomeMsg">
+        <div class="welcome-icon">⚡</div>
+        <h1 class="welcome-title">¡Bienvenido a RETIE Pro! 🚀</h1>
+        <p class="welcome-desc">
+          <strong>RETIE Pro</strong>, tu asistente técnico especializado en el 
+          <strong>Reglamento Técnico de Instalaciones Eléctricas</strong> de Colombia.<br><br>
+          📌 <strong>¿Qué puedo hacer por ti?</strong><br>
+          ✅ Consultar requisitos técnicos y normativas<br>
+          ✅ Buscar definiciones y especificaciones del RETIE<br>
+          ✅ Responder preguntas sobre instalaciones eléctricas<br>
+          ✅ Proporcionar referencias de páginas del documento<br><br>
+          💡 <strong>Consejo:</strong> Sé específico en tus preguntas para obtener respuestas más precisas.
+        </p>
+        <div class="example-grid">
+          <button class="example-card" onclick="usarEjemplo(this)">
+            📋 ¿Cuáles son los requisitos para instalaciones en viviendas?
+          </button>
+          <button class="example-card" onclick="usarEjemplo(this)">
+            📖 ¿Qué es el RETIE y cuál es su objetivo?
+          </button>
+          <button class="example-card" onclick="usarEjemplo(this)">
+            🔌 ¿Qué normas aplican para conductores eléctricos?
+          </button>
+          <button class="example-card" onclick="usarEjemplo(this)">
+            ⚡ ¿Cuáles son las obligaciones del instalador?
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages (donde aparecerá el saludo del chatbot) -->
+      <div class="messages" id="messages"></div>
+
+    </div>
+
+    <!-- Input area -->
+    <div class="input-area">
+      <div class="input-wrapper">
+        <textarea
+          id="inputPregunta"
+          class="input-textarea"
+          placeholder="Pregunta sobre el RETIE..."
+          rows="1"
+          maxlength="1000"
+        ></textarea>
+        <button class="btn-send" id="btnEnviar" onclick="enviarPregunta()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z"/>
+          </svg>
+        </button>
+      </div>
+      <p class="input-disclaimer">
+        <span>🔒</span> Respuestas basadas exclusivamente en el RETIE oficial
+      </p>
+    </div>
+
+  </main>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
